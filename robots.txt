@@ -1,0 +1,53 @@
+# 桑帛云API - robots.txt
+# https://api.lolimi.cn
+# 高可用免费API接口平台，无限制免费数据接口
+
+User-agent: *
+Allow: /
+Allow: /list
+Allow: /blog
+Allow: /link
+Allow: /sponsor
+Allow: /hall
+Allow: /doc/
+
+# 禁止爬取用户私密页面
+Disallow: /user/
+Disallow: /login
+Disallow: /register
+
+# 百度蜘蛛
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# 谷歌蜘蛛
+User-agent: Googlebot
+Allow: /
+
+# 必应蜘蛛
+User-agent: bingbot
+Allow: /
+
+# 360蜘蛛
+User-agent: 360Spider
+Allow: /
+
+# 搜狗蜘蛛
+User-agent: Sogou web spider
+Allow: /
+
+# 神马蜘蛛
+User-agent: YisouSpider
+Allow: /
+
+# 头条蜘蛛
+User-agent: Bytespider
+Allow: /
+
+# Sitemap 位置
+Sitemap: https://api.lolimi.cn/sitemap.xml
+Sitemap: https://api.lolimi.cn/yapi/sitemap
+
+# Host
+Host: https://api.lolimi.cn

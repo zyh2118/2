@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme表情包生成器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">Meme表情包生成器</h1>
+            <p class="header__subtitle">选择模板，输入文字，生成表情包</p>
+        </header>
+
+        <main class="main-content">
+            <div class="card">
+                <div class="card__header">
+                    <i class="fas fa-edit card__icon"></i>
+                    <h2 class="card__title">生成器</h2>
+                </div>
+                
+                <button class="btn btn--primary" id="selectMemeBtn" style="width:100%">
+                    <i class="fas fa-list"></i> 选择模板
+                </button>
+                
+                <div id="selectedMemeContainer" class="hidden mt-3">
+                    <div class="preview-container">
+                        <img id="selectedMemePreview" class="preview-image" src="index.html" alt="预览">
+                        <div class="preview-info">
+                            <h3 id="selectedMemeName"></h3>
+                            <span id="selectedMemeType"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-card mt-3">
+                        <i class="fas fa-info-circle"></i>
+                        <span>只支持QQ号制图，更多功能请前往API平台</span>
+                    </div>
+                    
+                    <form id="memeForm" class="mt-3">
+                        <div id="formFields"></div>
+                        <button type="submit" class="btn btn--primary mt-2" style="width:100%">
+                            <i class="fas fa-check"></i> 生成
+                        </button>
+                    </form>
+                </div>
+                
+                <div id="resultContainer" class="hidden mt-4">
+                    <div class="card__header" style="margin-top:0">
+                        <i class="fas fa-image card__icon"></i>
+                        <h2 class="card__title">结果</h2>
+                    </div>
+                    
+                    <div class="preview-container">
+                        <div id="loadingIndicator" class="loading hidden">
+                            <div class="loading__spinner"></div>
+                            <p>生成中...</p>
+                        </div>
+                        
+                        <img id="resultImage" class="preview-image hidden" src="index.html" alt="结果">
+                        <p id="imageLoadingTip" class="hidden" style="color:#888;font-size:13px;"></p>
+                        
+                        <div class="actions mt-2">
+                            <a href="index.html#" class="btn btn--accent" id="downloadBtn" target="_blank">
+                                <i class="fas fa-download"></i> 下载
+                            </a>
+                            <button class="btn btn--secondary" id="regenerateBtn">
+                                <i class="fas fa-redo"></i> 重新生成
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card__header">
+                    <i class="fas fa-history card__icon"></i>
+                    <h2 class="card__title">最近生成</h2>
+                </div>
+                
+                <div id="recentMemes" class="meme-selector">
+                    <div class="empty-state">
+                        <i class="fas fa-image"></i>
+                        <p>暂无记录</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div id="memeModal" class="modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 class="modal__title">选择模板</h2>
+                <button class="modal__close" id="closeModal">&times;</button>
+            </div>
+            
+            <div class="modal__body">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="搜索...">
+                </div>
+                
+                <div id="memeList" class="meme-selector">
+                    <div class="loading">
+                        <div class="loading__spinner"></div>
+                        <p>加载中...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
